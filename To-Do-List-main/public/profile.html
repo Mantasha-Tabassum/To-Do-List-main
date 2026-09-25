@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TaskFlow - Profile</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="profile-page">
+
+        <div class="profile-card">
+
+
+            <!-- HEADER -->
+
+            <div class="profile-header">
+
+                <a
+                    href="index.html"
+                    class="back-btn"
+                >
+                    ← Dashboard
+                </a>
+
+
+                <div class="profile-avatar-large" id="profileAvatar">
+                    U
+                </div>
+
+
+                <h1 id="profileName">
+                    User
+                </h1>
+
+
+                <p id="profileEmail">
+                    user@example.com
+                </p>
+
+            </div>
+
+
+            <!-- ACCOUNT INFORMATION -->
+
+            <section class="profile-section">
+
+                <h2>
+                    Account Information
+                </h2>
+
+                <p class="profile-subtitle">
+                    Manage your TaskFlow account details.
+                </p>
+
+
+                <!-- NAME -->
+
+                <div class="profile-field">
+
+                    <label for="profileNameInput">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="profileNameInput"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="profile-field">
+
+                    <label for="profileEmailInput">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="profileEmailInput"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="saveProfileBtn"
+                    class="save-profile-btn"
+                >
+                    Save Changes
+                </button>
+
+            </section>
+
+            <section class="profile-section">
+
+    <h2>Change Password</h2>
+    <p class="profile-subtitle">
+        Update your account password securely.
+    </p>
+
+    <div class="profile-field">
+        <label for="currentPassword">Current Password</label>
+        <input
+            type="password"
+            id="currentPassword"
+            placeholder="Enter current password"
+        >
+    </div>
+
+    <div class="profile-field">
+        <label for="newPassword">New Password</label>
+        <input
+            type="password"
+            id="newPassword"
+            placeholder="Enter new password"
+        >
+    </div>
+
+    <div class="profile-field">
+        <label for="confirmPassword">Confirm New Password</label>
+        <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm new password"
+        >
+    </div>
+
+    <button
+        type="button"
+        id="changePasswordBtn"
+        class="save-profile-btn"
+    >
+        Change Password
+    </button>
+
+</section>
+
+
+            <!-- ACCOUNT ACTIONS -->
+
+            <section class="profile-section danger-section">
+
+                <h2>
+                    Account Actions
+                </h2>
+
+                <p class="profile-subtitle">
+                    Sign out from your TaskFlow account.
+                </p>
+
+
+                <button
+                    type="button"
+                    id="profileLogoutBtn"
+                    class="profile-logout-btn"
+                >
+                    Logout
+                </button>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- TOAST -->
+
+    <div
+        id="profileToast"
+        class="profile-toast"
+    >
+        <span id="profileToastMessage"></span>
+    </div>
+
+
+    <script src="profile.js"></script>
+
+</body>
+
+</html>

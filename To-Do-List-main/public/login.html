@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TaskFlow - Login</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="auth-container">
+
+        <div class="auth-card">
+
+            <!-- LOGO -->
+
+            <div class="auth-logo">
+                ✓
+            </div>
+
+
+            <h1>
+                Welcome Back
+            </h1>
+
+
+            <p class="auth-subtitle">
+                Login to continue to TaskFlow
+            </p>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+                <div class="auth-field">
+
+                    <label for="loginEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-submit"
+                >
+                    Login
+                </button>
+
+                <a href="forgot-password.html" class="forgot-password-link">
+    Forgot Password?
+</a>
+
+            </form>
+
+
+            <!-- MESSAGE -->
+
+            <p
+                id="loginMessage"
+                class="auth-message"
+            ></p>
+
+
+            <!-- REGISTER LINK -->
+
+            <p class="auth-switch">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create Account
+                </a>
+
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script src="auth.js"></script>
+
+</body>
+
+</html>

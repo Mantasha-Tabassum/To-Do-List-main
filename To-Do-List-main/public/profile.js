@@ -515,3 +515,186 @@ if (changePasswordBtn) {
         }
     });
 }
+
+// ============================================
+// PASSWORD SHOW / HIDE
+// ============================================
+
+const passwordToggleButtons =
+    document.querySelectorAll(".password-toggle");
+
+passwordToggleButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const targetId =
+            this.getAttribute("data-target");
+
+        const passwordInput =
+            document.getElementById(targetId);
+
+        if (!passwordInput) return;
+
+
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+
+            this.textContent = "👁️";
+
+            this.setAttribute(
+                "aria-label",
+                "Hide password"
+            );
+
+        } else {
+
+            passwordInput.type = "password";
+
+            this.textContent = "🙈";
+
+            this.setAttribute(
+                "aria-label",
+                "Show password"
+            );
+
+        }
+
+    });
+
+});
+
+// ============================================
+// PASSWORD STRENGTH
+// ============================================
+
+const newPasswordInput =
+    document.getElementById("newPassword");
+
+const passwordStrengthFill =
+    document.getElementById("passwordStrengthFill");
+
+const passwordStrengthText =
+    document.getElementById("passwordStrengthText");
+
+
+if (
+    newPasswordInput &&
+    passwordStrengthFill &&
+    passwordStrengthText
+) {
+
+    newPasswordInput.addEventListener(
+        "input",
+        function () {
+
+            const password = this.value;
+
+            // Empty password
+            if (password.length === 0) {
+
+                passwordStrengthFill.style.width = "0%";
+
+                passwordStrengthText.textContent =
+                    "Password strength";
+
+                passwordStrengthText.style.color = "";
+
+                return;
+            }
+
+
+            let score = 0;
+
+
+            // Length
+            if (password.length >= 6) {
+                score++;
+            }
+
+            if (password.length >= 10) {
+                score++;
+            }
+
+
+            // Lowercase
+            if (/[a-z]/.test(password)) {
+                score++;
+            }
+
+
+            // Uppercase
+            if (/[A-Z]/.test(password)) {
+                score++;
+            }
+
+
+            // Number
+            if (/[0-9]/.test(password)) {
+                score++;
+            }
+
+
+            // Special character
+            if (/[^A-Za-z0-9]/.test(password)) {
+                score++;
+            }
+
+
+            // WEAK
+            if (password.length < 8 || score <= 2) {
+
+                passwordStrengthFill.style.width =
+                    "33%";
+
+                passwordStrengthFill.style.background =
+                    "#ef4444";
+
+                passwordStrengthText.textContent =
+                    "Weak password";
+
+                passwordStrengthText.style.color =
+                    "#ef4444";
+            }
+
+
+            // MEDIUM
+            else if (
+                password.length < 10 ||
+                score <= 4
+            ) {
+
+                passwordStrengthFill.style.width =
+                    "66%";
+
+                passwordStrengthFill.style.background =
+                    "#f59e0b";
+
+                passwordStrengthText.textContent =
+                    "Medium password";
+
+                passwordStrengthText.style.color =
+                    "#f59e0b";
+            }
+
+
+            // STRONG
+            else {
+
+                passwordStrengthFill.style.width =
+                    "100%";
+
+                passwordStrengthFill.style.background =
+                    "#22c55e";
+
+                passwordStrengthText.textContent =
+                    "Strong password";
+
+                passwordStrengthText.style.color =
+                    "#22c55e";
+            }
+
+        }
+    );
+
+}

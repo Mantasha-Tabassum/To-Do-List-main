@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TaskFlow - Settings</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="settings-page">
+
+        <div class="settings-container">
+
+
+            <!-- BACK TO DASHBOARD -->
+
+            <a
+                href="index.html"
+                class="settings-back"
+            >
+                ← Dashboard
+            </a>
+
+
+            <!-- HEADER -->
+
+            <div class="settings-page-header">
+
+                <div class="settings-page-icon">
+                    ⚙️
+                </div>
+
+                <div>
+
+                    <h1>
+                        Settings
+                    </h1>
+
+                    <p>
+                        Customize your TaskFlow experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- APPEARANCE -->
+
+            <section class="settings-card">
+
+                <div class="settings-card-title">
+
+                    <div>
+
+                        <h2>
+                            Appearance
+                        </h2>
+
+                        <p>
+                            Choose how TaskFlow looks.
+                        </p>
+
+                    </div>
+
+                    <span>
+                        🎨
+                    </span>
+
+                </div>
+
+
+                <div class="settings-row">
+
+                    <div>
+
+                        <strong>
+                            Dark Mode
+                        </strong>
+
+                        <p>
+                            Switch between light and dark theme.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="settingsThemeToggle"
+                        class="settings-toggle"
+                    >
+
+                        <span class="toggle-circle"></span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- TASK PREFERENCES -->
+
+            <section class="settings-card">
+
+                <div class="settings-card-title">
+
+                    <div>
+
+                        <h2>
+                            Task Preferences
+                        </h2>
+
+                        <p>
+                            Manage your task display preferences.
+                        </p>
+
+                    </div>
+
+                    <span>
+                        📋
+                    </span>
+
+                </div>
+
+
+                <div class="settings-row">
+
+                    <div>
+
+                        <strong>
+                            Show Completed Tasks
+                        </strong>
+
+                        <p>
+                            Keep completed tasks visible in your task list.
+                        </p>
+
+                    </div>
+
+
+                    <label class="settings-switch">
+
+                        <input
+                            type="checkbox"
+                            id="showCompletedSetting"
+                            checked
+                        >
+
+                        <span class="settings-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="settings-row">
+
+                    <div>
+
+                        <strong>
+                            Confirm Before Delete
+                        </strong>
+
+                        <p>
+                            Ask for confirmation before deleting a task.
+                        </p>
+
+                    </div>
+
+
+                    <label class="settings-switch">
+
+                        <input
+                            type="checkbox"
+                            id="confirmDeleteSetting"
+                            checked
+                        >
+
+                        <span class="settings-slider"></span>
+
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- ACCOUNT -->
+
+            <section class="settings-card">
+
+                <div class="settings-card-title">
+
+                    <div>
+
+                        <h2>
+                            Account
+                        </h2>
+
+                        <p>
+                            Manage your TaskFlow account.
+                        </p>
+
+                    </div>
+
+                    <span>
+                        👤
+                    </span>
+
+                </div>
+
+
+                <div class="settings-account-buttons">
+
+                    <a
+                        href="profile.html"
+                        class="settings-profile-btn"
+                    >
+                        View Profile
+                    </a>
+
+
+                    <button
+                        type="button"
+                        id="settingsLogoutBtn"
+                        class="settings-logout-btn"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- SAVE MESSAGE -->
+
+            <div
+                id="settingsSaveMessage"
+                class="settings-save-message"
+            >
+                ✓ Settings saved successfully
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <footer class="settings-footer">
+
+                <span>
+                    TaskFlow
+                </span>
+
+                <span>
+                    Stay organized. Stay productive. ✨
+                </span>
+
+            </footer>
+
+
+        </div>
+
+    </main>
+
+
+    <script src="auth.js"></script>
+
+    <script>
+
+const settingsThemeToggle =
+    document.getElementById("settingsThemeToggle");
+
+
+// LOAD SAVED THEME
+const savedTheme =
+    localStorage.getItem("taskflow-theme");
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark");
+
+    if (settingsThemeToggle) {
+        settingsThemeToggle.classList.add("active");
+    }
+
+}
+
+
+// DARK MODE TOGGLE
+if (settingsThemeToggle) {
+
+    settingsThemeToggle.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle("dark");
+
+            const isDark =
+                document.body.classList.contains("dark");
+
+
+            if (isDark) {
+
+                settingsThemeToggle.classList.add("active");
+
+                localStorage.setItem(
+                    "taskflow-theme",
+                    "dark"
+                );
+
+            } else {
+
+                settingsThemeToggle.classList.remove("active");
+
+                localStorage.setItem(
+                    "taskflow-theme",
+                    "light"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+// ============================================
+// CONFIRM BEFORE DELETE SETTING
+// ============================================
+
+const confirmDeleteSetting =
+    document.getElementById("confirmDeleteSetting");
+
+if (confirmDeleteSetting) {
+
+    // Load saved setting
+    const savedConfirmDelete =
+        localStorage.getItem("confirmBeforeDelete");
+
+    if (savedConfirmDelete !== null) {
+
+        confirmDeleteSetting.checked =
+            savedConfirmDelete === "true";
+
+    }
+
+    // Save setting whenever toggle changes
+    confirmDeleteSetting.addEventListener("change", function () {
+
+        localStorage.setItem(
+            "confirmBeforeDelete",
+            this.checked ? "true" : "false"
+        );
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -16,335 +16,17 @@
         rel="stylesheet"
         href="style.css"
     >
-
-    <!-- =====================================================
-         TASKFLOW LAYOUT OVERRIDES
-    ====================================================== -->
-
-    <style>
-
-        /* =====================================================
-           MAIN APP LAYOUT
-        ====================================================== */
-
-        .container {
-            display: grid !important;
-
-            grid-template-columns:
-                235px minmax(0, 1fr) !important;
-
-            align-items: stretch;
-
-            overflow: hidden;
-        }
-
-
-        /* =====================================================
-           SIDEBAR
-        ====================================================== */
-
-        .sidebar {
-
-            grid-column: 1 !important;
-            grid-row: 1 !important;
-
-            min-height: 100%;
-
-            position: relative;
-        }
-
-
-        /* =====================================================
-           MAIN CONTENT WRAPPER
-        ====================================================== */
-
-        .app-main {
-
-            grid-column: 2;
-
-            min-width: 0;
-
-            display: flex;
-
-            flex-direction: column;
-
-            background: transparent;
-        }
-
-
-        /* =====================================================
-           HEADER
-        ====================================================== */
-
-        .app-main .header {
-
-            width: 100%;
-
-            margin: 0;
-
-            flex-shrink: 0;
-        }
-
-
-        /* =====================================================
-           GENERAL MAIN SECTIONS
-        ====================================================== */
-
-        .app-main > .add-section,
-        .app-main > .controls,
-        .app-main > .secondary-controls,
-        .app-main > .stats,
-        .app-main > .progress-card,
-        .app-main > .task-section,
-        .app-main > .footer {
-
-            width: auto;
-
-            box-sizing: border-box;
-        }
-
-
-        /* =====================================================
-           ANALYTICS + UPCOMING ROW
-        ====================================================== */
-
-        .dashboard-two-column {
-
-            display: grid;
-
-            grid-template-columns:
-                minmax(0, 1.15fr)
-                minmax(0, 0.85fr);
-
-            gap: 14px;
-
-            margin: 0 34px 14px;
-        }
-
-
-        .dashboard-two-column
-        .analytics-section {
-
-            margin: 0;
-
-            min-width: 0;
-        }
-
-
-        .dashboard-two-column
-        .upcoming-section {
-
-            margin: 0;
-
-            min-width: 0;
-        }
-
-
-        /* =====================================================
-           COMPACT ANALYTICS
-        ====================================================== */
-
-        .dashboard-two-column
-        .analytics-grid {
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 8px;
-        }
-
-
-        .dashboard-two-column
-        .analytics-card {
-
-            min-height: 62px;
-
-            padding: 10px;
-        }
-
-
-        .dashboard-two-column
-        .analytics-panel {
-
-            padding: 11px;
-
-            margin-top: 8px;
-        }
-
-
-        /* =====================================================
-           UPCOMING DEADLINES
-        ====================================================== */
-
-        .dashboard-two-column
-        .upcoming-tasks {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 7px;
-
-            max-height: 390px;
-
-            overflow-y: auto;
-
-            padding-right: 3px;
-        }
-
-
-        /* =====================================================
-           TASK SECTION
-        ====================================================== */
-
-        .app-main > .task-section {
-
-            margin-left: 34px;
-
-            margin-right: 34px;
-
-            margin-bottom: 18px;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ====================================================== */
-
-        .app-main > .footer {
-
-            margin-left: 34px;
-
-            margin-right: 34px;
-
-            margin-bottom: 20px;
-        }
-
-
-        /* =====================================================
-           DESKTOP
-        ====================================================== */
-
-        @media (min-width: 1000px) {
-
-            .dashboard-two-column
-            .upcoming-section {
-
-                min-height: 100%;
-            }
-
-        }
-
-
-        /* =====================================================
-           TABLET
-        ====================================================== */
-
-        @media (max-width: 1000px) {
-
-            .dashboard-two-column {
-
-                grid-template-columns: 1fr;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ====================================================== */
-
-        @media (max-width: 850px) {
-
-            .container {
-
-                display: block !important;
-
-            }
-
-
-            .sidebar {
-
-                display: none;
-
-            }
-
-
-            .app-main {
-
-                width: 100%;
-
-            }
-
-
-            .dashboard-two-column {
-
-                grid-template-columns: 1fr;
-
-                margin-left: 20px;
-
-                margin-right: 20px;
-
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .dashboard-two-column {
-
-                margin-left: 15px;
-
-                margin-right: 15px;
-
-            }
-
-
-            .dashboard-two-column
-            .analytics-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .app-main > .task-section {
-
-                margin-left: 15px;
-
-                margin-right: 15px;
-
-            }
-
-
-            .app-main > .footer {
-
-                margin-left: 15px;
-
-                margin-right: 15px;
-
-            }
-
-        }
-
-    </style>
-
 </head>
-
 
 <body>
 
-
 <main class="container">
-
 
     <!-- =====================================================
          SIDEBAR
     ====================================================== -->
 
     <aside class="sidebar">
-
 
         <!-- BRAND -->
 
@@ -368,11 +50,9 @@
 
         </div>
 
-
         <!-- NAVIGATION -->
 
         <nav class="sidebar-nav">
-
 
             <a
                 href="#dashboard"
@@ -387,7 +67,6 @@
 
             </a>
 
-
             <a
                 href="#taskSection"
                 class="sidebar-link"
@@ -400,7 +79,6 @@
                 </span>
 
             </a>
-
 
             <a
                 href="#upcomingSection"
@@ -415,7 +93,6 @@
 
             </a>
 
-
             <a
                 href="#analyticsSection"
                 class="sidebar-link"
@@ -428,7 +105,6 @@
                 </span>
 
             </a>
-
 
             <a
                 href="profile.html"
@@ -443,9 +119,8 @@
 
             </a>
 
-
             <a
-                href="profile.html"
+                href="settings.html"
                 class="sidebar-link"
             >
 
@@ -457,9 +132,7 @@
 
             </a>
 
-
         </nav>
-
 
         <!-- QUOTE -->
 
@@ -480,7 +153,6 @@
 
         </div>
 
-
         <!-- BOTTOM STATUS -->
 
         <div class="sidebar-bottom">
@@ -493,17 +165,13 @@
 
         </div>
 
-
     </aside>
-
-
 
     <!-- =====================================================
          MAIN CONTENT
     ====================================================== -->
 
     <div class="app-main">
-
 
         <!-- =================================================
              HEADER
@@ -513,7 +181,6 @@
             class="header"
             id="dashboard"
         >
-
 
             <!-- BRAND -->
 
@@ -541,11 +208,9 @@
 
             </div>
 
-
             <!-- USER ACTIONS -->
 
             <div class="header-actions">
-
 
                 <div class="user-info">
 
@@ -555,7 +220,6 @@
                     >
                         U
                     </div>
-
 
                     <div class="user-details">
 
@@ -571,14 +235,12 @@
 
                 </div>
 
-
                 <a
                     href="profile.html"
                     class="profile-btn"
                 >
                     Profile
                 </a>
-
 
                 <button
                     id="logoutBtn"
@@ -587,7 +249,6 @@
                 >
                     Logout
                 </button>
-
 
                 <button
                     id="themeToggle"
@@ -598,13 +259,9 @@
                     🌙
                 </button>
 
-
             </div>
 
-
         </header>
-
-
 
         <!-- =================================================
              ADD TASK
@@ -612,14 +269,12 @@
 
         <section class="add-section">
 
-
             <input
                 type="text"
                 id="taskInput"
                 placeholder="What do you need to do?"
                 autocomplete="off"
             >
-
 
             <select id="prioritySelect">
 
@@ -639,7 +294,6 @@
                 </option>
 
             </select>
-
 
             <select id="categorySelect">
 
@@ -665,12 +319,10 @@
 
             </select>
 
-
             <input
                 type="date"
                 id="dueDate"
             >
-
 
             <button
                 id="addTask"
@@ -679,17 +331,13 @@
                 Add Task
             </button>
 
-
         </section>
-
-
 
         <!-- =================================================
              SEARCH + FILTERS
         ================================================== -->
 
         <section class="controls">
-
 
             <!-- SEARCH -->
 
@@ -708,11 +356,9 @@
 
             </div>
 
-
             <!-- STATUS FILTER -->
 
             <div class="filter-buttons">
-
 
                 <button
                     type="button"
@@ -722,7 +368,6 @@
                     All
                 </button>
 
-
                 <button
                     type="button"
                     class="filter-btn"
@@ -730,7 +375,6 @@
                 >
                     Active
                 </button>
-
 
                 <button
                     type="button"
@@ -740,9 +384,7 @@
                     Completed
                 </button>
 
-
             </div>
-
 
             <!-- CATEGORY FILTER -->
 
@@ -782,7 +424,6 @@
 
             </div>
 
-
             <!-- PRIORITY FILTER -->
 
             <div class="advanced-filter">
@@ -813,17 +454,13 @@
 
             </div>
 
-
         </section>
-
-
 
         <!-- =================================================
              SORT + CLEAR
         ================================================== -->
 
         <section class="secondary-controls">
-
 
             <div class="sort-box">
 
@@ -853,7 +490,6 @@
 
             </div>
 
-
             <button
                 id="clearCompleted"
                 class="clear-btn"
@@ -862,17 +498,13 @@
                 🧹 Clear Completed
             </button>
 
-
         </section>
-
-
 
         <!-- =================================================
              STATISTICS
         ================================================== -->
 
         <section class="stats">
-
 
             <div class="stat-card">
 
@@ -886,7 +518,6 @@
 
             </div>
 
-
             <div class="stat-card">
 
                 <strong id="activeCount">
@@ -898,7 +529,6 @@
                 </span>
 
             </div>
-
 
             <div class="stat-card">
 
@@ -912,7 +542,6 @@
 
             </div>
 
-
             <div class="stat-card danger-stat">
 
                 <strong id="overdueCount">
@@ -925,10 +554,7 @@
 
             </div>
 
-
         </section>
-
-
 
         <!-- =================================================
              PROGRESS
@@ -936,9 +562,7 @@
 
         <section class="progress-card">
 
-
             <div class="progress-header">
-
 
                 <div>
 
@@ -952,14 +576,11 @@
 
                 </div>
 
-
                 <strong id="progressPercent">
                     0%
                 </strong>
 
-
             </div>
-
 
             <div class="progress-bar">
 
@@ -970,17 +591,13 @@
 
             </div>
 
-
         </section>
-
-
 
         <!-- =================================================
              ANALYTICS + UPCOMING
         ================================================== -->
 
         <div class="dashboard-two-column">
-
 
             <!-- =============================================
                  ANALYTICS
@@ -990,7 +607,6 @@
                 class="analytics-section"
                 id="analyticsSection"
             >
-
 
                 <div class="analytics-header">
 
@@ -1008,11 +624,9 @@
 
                 </div>
 
-
                 <!-- ANALYTICS CARDS -->
 
                 <div class="analytics-grid">
-
 
                     <!-- COMPLETION RATE -->
 
@@ -1036,7 +650,6 @@
 
                     </div>
 
-
                     <!-- ACTIVE TASKS -->
 
                     <div class="analytics-card">
@@ -1059,9 +672,7 @@
 
                     </div>
 
-
                 </div>
-
 
                 <!-- CATEGORY ANALYTICS -->
 
@@ -1075,7 +686,6 @@
 
                 </div>
 
-
                 <!-- PRIORITY ANALYTICS -->
 
                 <div class="analytics-panel">
@@ -1088,10 +698,7 @@
 
                 </div>
 
-
             </section>
-
-
 
             <!-- =============================================
                  UPCOMING DEADLINES
@@ -1101,7 +708,6 @@
                 class="upcoming-section"
                 id="upcomingSection"
             >
-
 
                 <div class="upcoming-header">
 
@@ -1119,7 +725,6 @@
 
                 </div>
 
-
                 <div
                     id="upcomingTasks"
                     class="upcoming-tasks"
@@ -1131,13 +736,9 @@
 
                 </div>
 
-
             </section>
 
-
         </div>
-
-
 
         <!-- =================================================
              TASK LIST
@@ -1176,17 +777,14 @@
 
     </div>
 
-
     <ul id="taskList"></ul>
 
 </section>
 
-
-
-        <!-- =================================================
+<!-- =================================================
              FOOTER
         ================================================== -->
-
+        
         <footer class="footer">
 
             <span>
@@ -1199,13 +797,9 @@
 
         </footer>
 
-
     </div>
 
-
 </main>
-
-
 
 <!-- =========================================================
      EDIT TASK MODAL
@@ -1216,9 +810,7 @@
     class="modal-overlay"
 >
 
-
     <div class="modal">
-
 
         <button
             id="closeEditModal"
@@ -1228,21 +820,17 @@
             ×
         </button>
 
-
         <h2>
             Edit Task
         </h2>
-
 
         <p class="modal-subtitle">
             Update your task details
         </p>
 
-
         <label>
             Task
         </label>
-
 
         <input
             type="text"
@@ -1250,11 +838,9 @@
             placeholder="Enter task..."
         >
 
-
         <label>
             Priority
         </label>
-
 
         <select id="editPriority">
 
@@ -1272,11 +858,9 @@
 
         </select>
 
-
         <label>
             Category
         </label>
-
 
         <select id="editCategory">
 
@@ -1302,20 +886,16 @@
 
         </select>
 
-
         <label>
             Due Date
         </label>
-
 
         <input
             type="date"
             id="editDueDate"
         >
 
-
         <div class="modal-actions">
-
 
             <button
                 id="cancelEdit"
@@ -1325,7 +905,6 @@
                 Cancel
             </button>
 
-
             <button
                 id="saveEdit"
                 class="save-btn"
@@ -1334,16 +913,11 @@
                 Save Changes
             </button>
 
-
         </div>
-
 
     </div>
 
-
 </div>
-
-
 
 <!-- =========================================================
      DELETE TASK MODAL
@@ -1354,27 +928,21 @@
     class="modal-overlay"
 >
 
-
     <div class="modal delete-modal">
-
 
         <div class="delete-icon">
             🗑️
         </div>
 
-
         <h2>
             Delete Task?
         </h2>
-
 
         <p>
             Are you sure you want to delete this task?
         </p>
 
-
         <div class="modal-actions">
-
 
             <button
                 id="cancelDelete"
@@ -1384,7 +952,6 @@
                 Cancel
             </button>
 
-
             <button
                 id="confirmDelete"
                 class="delete-confirm-btn"
@@ -1393,16 +960,11 @@
                 Delete
             </button>
 
-
         </div>
-
 
     </div>
 
-
 </div>
-
-
 
 <!-- =========================================================
      TOAST
@@ -1423,14 +985,11 @@
 
 </div>
 
-
-
 <!-- =========================================================
      JAVASCRIPT
 ========================================================== -->
 
 <script src="script.js"></script>
-
 
 </body>
 

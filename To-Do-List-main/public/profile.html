@@ -24,167 +24,349 @@
 
     <main class="profile-page">
 
-        <div class="profile-card">
+        <div class="profile-container">
 
 
-            <!-- HEADER -->
+            <!-- BACK TO DASHBOARD -->
 
-            <div class="profile-header">
+            <a
+                href="index.html"
+                class="profile-back-btn"
+            >
+                ← Back to Dashboard
+            </a>
 
-                <a
-                    href="index.html"
-                    class="back-btn"
+
+            <!-- PROFILE HEADER -->
+
+            <section class="profile-hero">
+
+                <div
+                    class="profile-avatar-large"
+                    id="profileAvatar"
                 >
-                    ← Dashboard
-                </a>
-
-
-                <div class="profile-avatar-large" id="profileAvatar">
                     U
                 </div>
 
 
-                <h1 id="profileName">
-                    User
-                </h1>
+                <div class="profile-hero-info">
 
+                    <h1 id="profileName">
+                        User
+                    </h1>
 
-                <p id="profileEmail">
-                    user@example.com
-                </p>
+                    <p id="profileEmail">
+                        user@example.com
+                    </p>
 
-            </div>
+                    <span class="profile-status">
+                        ● Active Account
+                    </span>
+
+                </div>
+
+            </section>
+
 
 
             <!-- ACCOUNT INFORMATION -->
 
             <section class="profile-section">
 
-                <h2>
-                    Account Information
-                </h2>
+                <div class="profile-section-header">
 
-                <p class="profile-subtitle">
-                    Manage your TaskFlow account details.
-                </p>
+                    <div>
 
+                        <h2>
+                            Account Information
+                        </h2>
 
-                <!-- NAME -->
+                        <p>
+                            Manage your TaskFlow account details.
+                        </p>
 
-                <div class="profile-field">
+                    </div>
 
-                    <label for="profileNameInput">
-                        Full Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="profileNameInput"
-                        placeholder="Enter your name"
-                    >
+                    <div class="profile-section-icon">
+                        👤
+                    </div>
 
                 </div>
 
 
-                <!-- EMAIL -->
+                <div class="profile-fields-grid">
 
-                <div class="profile-field">
+                    <div class="profile-field">
 
-                    <label for="profileEmailInput">
-                        Email
-                    </label>
+                        <label for="profileNameInput">
+                            Full Name
+                        </label>
 
-                    <input
-                        type="email"
-                        id="profileEmailInput"
-                        placeholder="Enter your email"
-                    >
+                        <input
+                            type="text"
+                            id="profileNameInput"
+                            placeholder="Enter your name"
+                        >
+
+                    </div>
+
+
+                    <div class="profile-field">
+
+                        <label for="profileEmailInput">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="profileEmailInput"
+                            placeholder="Enter your email"
+                        >
+
+                    </div>
 
                 </div>
 
 
-                <button
-                    type="button"
-                    id="saveProfileBtn"
-                    class="save-profile-btn"
-                >
-                    Save Changes
-                </button>
+                <div class="profile-action-row">
+
+                    <button
+                        type="button"
+                        id="saveProfileBtn"
+                        class="save-profile-btn"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
 
             </section>
 
+
+
+            <!-- CHANGE PASSWORD -->
+
             <section class="profile-section">
 
-    <h2>Change Password</h2>
-    <p class="profile-subtitle">
-        Update your account password securely.
-    </p>
+                <div class="profile-section-header">
 
-    <div class="profile-field">
-        <label for="currentPassword">Current Password</label>
-        <input
-            type="password"
-            id="currentPassword"
-            placeholder="Enter current password"
-        >
+                    <div>
+
+                        <h2>
+                            Change Password
+                        </h2>
+
+                        <p>
+                            Update your account password securely.
+                        </p>
+
+                    </div>
+
+                    <div class="profile-section-icon">
+                        🔒
+                    </div>
+
+                </div>
+
+
+                <div class="profile-fields-grid">
+
+
+                    <!-- CURRENT PASSWORD -->
+
+                    <div class="profile-field">
+
+                        <label for="currentPassword">
+                            Current Password
+                        </label>
+
+                        <div class="password-input-wrapper">
+
+                            <input
+                                type="password"
+                                id="currentPassword"
+                                placeholder="Enter current password"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="currentPassword"
+                                aria-label="Show password"
+                            >
+                                🙈
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- NEW PASSWORD -->
+
+                    <div class="profile-field">
+
+                        <label for="newPassword">
+                            New Password
+                        </label>
+
+                        <div class="password-input-wrapper">
+
+                            <input
+                                type="password"
+                                id="newPassword"
+                                placeholder="Enter new password"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="newPassword"
+                                aria-label="Show password"
+                            >
+                                🙈
+                            </button>
+
+                        </div>
+
+                        <div class="password-strength">
+
+    <div class="password-strength-bar">
+        <span id="passwordStrengthFill"></span>
     </div>
 
-    <div class="profile-field">
-        <label for="newPassword">New Password</label>
-        <input
-            type="password"
-            id="newPassword"
-            placeholder="Enter new password"
-        >
-    </div>
+    <span id="passwordStrengthText">
+        Password strength
+    </span>
 
-    <div class="profile-field">
-        <label for="confirmPassword">Confirm New Password</label>
-        <input
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm new password"
-        >
-    </div>
+</div>
 
-    <button
-        type="button"
-        id="changePasswordBtn"
-        class="save-profile-btn"
-    >
-        Change Password
-    </button>
+                    </div>
 
-</section>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="profile-field">
+
+                        <label for="confirmPassword">
+                            Confirm New Password
+                        </label>
+
+                        <div class="password-input-wrapper">
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Confirm new password"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="confirmPassword"
+                                aria-label="Show password"
+                            >
+                                🙈
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-action-row">
+
+                    <button
+                        type="button"
+                        id="changePasswordBtn"
+                        class="save-profile-btn"
+                    >
+                        Change Password
+                    </button>
+
+                </div>
+
+            </section>
+
 
 
             <!-- ACCOUNT ACTIONS -->
 
             <section class="profile-section danger-section">
 
-                <h2>
-                    Account Actions
-                </h2>
+                <div class="profile-section-header">
 
-                <p class="profile-subtitle">
-                    Sign out from your TaskFlow account.
-                </p>
+                    <div>
+
+                        <h2>
+                            Account Actions
+                        </h2>
+
+                        <p>
+                            Manage your current TaskFlow session.
+                        </p>
+
+                    </div>
+
+                    <div class="profile-section-icon danger-icon">
+                        ⚠️
+                    </div>
+
+                </div>
 
 
-                <button
-                    type="button"
-                    id="profileLogoutBtn"
-                    class="profile-logout-btn"
-                >
-                    Logout
-                </button>
+                <div class="profile-danger-content">
+
+                    <div>
+
+                        <strong>
+                            Sign out of TaskFlow
+                        </strong>
+
+                        <p>
+                            You can log in again anytime using your account.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="profileLogoutBtn"
+                        class="profile-logout-btn"
+                    >
+                        Logout
+                    </button>
+
+                </div>
 
             </section>
+
+
+
+            <!-- PROFILE FOOTER -->
+
+            <footer class="profile-footer">
+
+                <span>
+                    TaskFlow
+                </span>
+
+                <span>
+                    Stay organized. Stay productive. ✨
+                </span>
+
+            </footer>
 
 
         </div>
 
     </main>
+
 
 
     <!-- TOAST -->
@@ -193,7 +375,9 @@
         id="profileToast"
         class="profile-toast"
     >
+
         <span id="profileToastMessage"></span>
+
     </div>
 
 

@@ -691,9 +691,20 @@ function deleteTask(id) {
 
     deletingTaskId = id;
 
+    const confirmSetting =
+        localStorage.getItem("confirmBeforeDelete");
+
+    // If confirmation is OFF, delete directly
+    if (confirmSetting === "false") {
+
+        confirmDelete();
+
+        return;
+    }
+
+    // If confirmation is ON, show delete modal
     deleteModal.classList.add("show");
 }
-
 
 // ============================================
 // CONFIRM DELETE
@@ -2454,4 +2465,120 @@ function updateTaskSectionCount() {
     if (!countElement) return;
 
     countElement.textContent = tasks.length;
+}
+
+// ============================================
+// SETTINGS - DARK MODE
+// ============================================
+
+const settingsThemeToggle =
+    document.getElementById("settingsThemeToggle");
+
+function updateSettingsThemeToggle() {
+
+    if (!settingsThemeToggle) return;
+
+    const isDark =
+        document.body.classList.contains("dark-mode");
+
+    if (isDark) {
+
+        settingsThemeToggle.classList.add("active");
+
+    } else {
+
+        settingsThemeToggle.classList.remove("active");
+
+    }
+}
+
+
+if (settingsThemeToggle) {
+
+    updateSettingsThemeToggle();
+
+    settingsThemeToggle.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle(
+                "dark-mode"
+            );
+
+            const isDark =
+                document.body.classList.contains(
+                    "dark-mode"
+                );
+
+            localStorage.setItem(
+                "taskflow-dark-mode",
+                isDark
+            );
+
+            updateSettingsThemeToggle();
+
+        }
+    );
+}
+
+// ============================================
+// SHOW COMPLETED TASKS SETTING
+// ============================================
+
+const showCompletedSetting =
+    document.getElementById("showCompletedSetting");
+
+if (showCompletedSetting) {
+
+    // Load saved setting
+    const savedSetting =
+        localStorage.getItem("showCompletedTasks");
+
+    if (savedSetting !== null) {
+        showCompletedSetting.checked =
+            savedSetting === "true";
+    }
+
+    // Change setting
+    showCompletedSetting.addEventListener("change", function () {
+
+        localStorage.setItem(
+            "showCompletedTasks",
+            this.checked
+        );
+
+        renderTasks();
+
+    });
+
+}
+
+// ============================================
+// CONFIRM BEFORE DELETE SETTING
+// ============================================
+
+const confirmDeleteSetting =
+    document.getElementById("confirmDeleteSetting");
+
+if (confirmDeleteSetting) {
+
+    // Load saved setting
+    const savedConfirmDelete =
+        localStorage.getItem("confirmBeforeDelete");
+
+    if (savedConfirmDelete !== null) {
+        confirmDeleteSetting.checked =
+            savedConfirmDelete === "true";
+    }
+
+    // Save setting when changed
+    confirmDeleteSetting.addEventListener("change", function () {
+
+        localStorage.setItem(
+            "confirmBeforeDelete",
+            this.checked
+        );
+
+    });
+
 }
